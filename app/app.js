@@ -55,7 +55,6 @@ class Root extends Component {
   setup() {
     this.ui = ui;
     this.state = useState(state);
-    this.year = new Date().getFullYear();
     this.videoRef = useRef("video");
     this.chatRef = useRef("chat");
     useEffect(
