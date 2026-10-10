@@ -1,0 +1,20 @@
+{
+  "name": "bean-ipn-local",
+  "interface": {
+    "displayName": "Bean IPN Local"
+  },
+  "plugins": [
+    {
+      "name": "dev-go",
+      "source": {
+        "source": "local",
+        "path": "./plugins/dev-go"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

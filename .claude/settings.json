@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__tolaria-vault__list_directory",
+      "mcp__tolaria-vault__list_allowed_directories",
+      "Bash(ls /mnt/c/Git/Vault 2>&1 | head -20)",
+      "Read(//mnt/c/Git/Vault/**)"
+    ]
+  }
+}
