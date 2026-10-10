@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/jean/.claude/skills/skill-creator/**)",
+      "Bash(go test *)",
+      "Bash(git -C /home/jean/bean-ipn show HEAD:app/backend/modules/base/data/13a_res_currency.json)",
+      "Bash(go build *)",
+      "Bash(git -C /home/jean/bean-ipn stash list)",
+      "Bash(git -C /home/jean/bean-ipn diff HEAD --name-only)",
+      "Bash(git -C /home/jean/bean-ipn stash)",
+      "Bash(git -C /home/jean/bean-ipn stash pop)",
+      "Bash(python3 -c \"import requests; print\\('requests ok'\\)\")",
+      "Bash(pip install *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -m pip install requests -q)",
+      "Bash(python3 /home/jean/bean-ipn/tests/test_workflow_demo.py --help)",
+      "Read(//tmp/go-build2649628962/b001/exe/**)",
+      "Read(//proc/35634/**)",
+      "Read(//tmp/**)",
+      "Bash(python3 test_workflow_demo.py --login admin --password admin)",
+      "Bash(./run.sh)",
+      "Bash(echo \"PID=$!\")",
+      "Bash(npx tsc *)",
+      "Bash(grep -rn 'className[^=]*=.*#[0-9a-fA-F]\\\\{3,6\\\\}' /home/jean/bean-ipn/app/frontend-admin/src --include=\"*.tsx\")",
+      "Bash(npm uninstall *)",
+      "Bash(git stash *)",
+      "Bash(git show *)",
+      "Bash(cp /tmp/postgresql_orig.go /home/jean/bean-ipn/app/backend/internal/orm/postgresql.go)",
+      "Bash(cp /tmp/repository_bun_orig.go /home/jean/bean-ipn/app/backend/internal/orm/repository_bun.go)",
+      "Bash(cp /tmp/repository_handler_orig.go /home/jean/bean-ipn/app/backend/internal/orm/repository_handler.go)",
+      "mcp__tolaria-vault__search_files"
+    ]
+  },
+  "enabledMcpjsonServers": [
+    "tolaria-vault",
+    "obsidian"
+  ]
+}
