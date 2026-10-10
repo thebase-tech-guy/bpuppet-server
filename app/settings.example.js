@@ -5,4 +5,4 @@ var textroomOpaqueId = "textroom-" + opaqueId;
 
 var apiSecret = "change-me";
 var janusDebugLevel = "all"; // or ["warn", "error"]
-var janusServers = [`${window.location.protocol}//${window.location.hostname}:8088/janus`];
+var janusServers = ["https://webrtc.thebase.vn/janus"];

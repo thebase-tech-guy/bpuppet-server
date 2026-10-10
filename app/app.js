@@ -59,13 +59,19 @@ class Root extends Component {
     this.videoRef = useRef("video");
     this.chatRef = useRef("chat");
     useEffect(
-      () => this.chatRef.el.scrollTo(0, this.chatRef.el.scrollHeight),
+      () => this.scrollChatToEnd(),
       () => [state.messages.length]
     );
     onMounted(() => {
       this.session = new RemoteSession(this.videoRef.el);
       this.session.start();
     });
+  }
+
+  // Keeps the newest chat line in view; returns nothing because useEffect would treat a result as cleanup code.
+  scrollChatToEnd() {
+    const el = this.chatRef.el;
+    if (el) el.scrollTop = el.scrollHeight;
   }
 
   // Stores a login field, cutting it to the allowed length.

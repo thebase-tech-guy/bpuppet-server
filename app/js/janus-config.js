@@ -1,13 +1,15 @@
 const STORAGE_KEY = "apuppet.janus";
+const DEFAULT_SERVER = "https://webrtc.thebase.vn/janus";
 
 // Splits the server addresses typed by the user (comma or space separated) into a clean list.
 export function parseServers(text) {
   return text.split(/[\s,]+/).filter(Boolean);
 }
 
-// The Janus server list and API secret the deployment wrote into settings.js (empty if missing).
+// The Janus server list and API secret from settings.js, falling back to the Base WebRTC server.
 export function defaultConfig() {
-  return { servers: [].concat(window.janusServers ?? []), apiSecret: window.apiSecret ?? "" };
+  const servers = [].concat(window.janusServers ?? []);
+  return { servers: servers.length ? servers : [DEFAULT_SERVER], apiSecret: window.apiSecret ?? "" };
 }
 
 // The server chosen by the user in this browser, or the deployment default when none was saved.

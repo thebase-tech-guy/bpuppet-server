@@ -43,6 +43,6 @@ export class SessionMonitoring {
 
   // Records the time of the newest ping the phone answered.
   getPong(pongTimestamp) {
-    this.lastPongReceivedFrom = Math.max(this.lastPongReceivedFrom, parseInt(pongTimestamp));
+    this.lastPongReceivedFrom = Math.max(this.lastPongReceivedFrom, parseInt(pongTimestamp) || 0);
   }
 }

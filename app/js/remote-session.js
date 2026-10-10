@@ -94,10 +94,7 @@ export class RemoteSession {
       },
       ...connectionLogging("textroom", "Device management"),
       onmessage: (msg, jsep) => this.onTextroomMessage(msg, jsep),
-      ondataopen: (data) => {
-        console.debug("textroom: DataChannel is available", data);
-        this.chat.onDataOpen();
-      },
+      ondataopen: (data) => console.debug("textroom: DataChannel is available", data),
       ondata: (rawData) => this.onTextroomData(rawData),
       oncleanup: () => {
         console.info("textroom: got cleanup");
@@ -237,11 +234,16 @@ export class RemoteSession {
     ui.showError(`WebRTC error: ${JSON.stringify(error)}`, "webrtc_error");
   }
 
-  // Connects to the phone with the session ID and password from the login form.
+  // Connects to the phone with the session ID and password from the login form (the room and mountpoint ID are sent as an integer).
   login(sessionId, pin) {
+    const id = Number.parseInt(sessionId, 10);
+    if (Number.isNaN(id)) {
+      ui.showError("Session ID must be a number", "invalid_session_id");
+      return;
+    }
     ui.connStart();
-    this.video.startStreamMountpoint(sessionId, pin);
-    this.chat.startRoom(sessionId, pin);
+    this.video.startStreamMountpoint(id, pin);
+    this.chat.startRoom(id, pin);
   }
 
   // Opens the debug panel when the secret word is typed.

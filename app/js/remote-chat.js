@@ -11,7 +11,6 @@ export class RemoteChat {
     this.sessionId = "";
     this.pin = "";
     this.userId = "";
-    this.dataOpen = false;
   }
 
   // Remembers the helper that understands the phone's commands.
@@ -65,18 +64,12 @@ export class RemoteChat {
     this.textroom.send({ message: { request: "setup" } });
   }
 
-  // Starts joining the room that belongs to the session ID.
+  // Joins the chat room that belongs to the session ID.
   startRoom(sessionId, pin) {
     this.sessionId = sessionId;
     this.pin = pin;
     this.userId = `admin:${sessionId}`;
-    if (this.dataOpen) this.registerUserAndJoinRoom();
-  }
-
-  // The data channel is ready; joins the room if the user already asked to connect.
-  onDataOpen() {
-    this.dataOpen = true;
-    if (this.sessionId) this.registerUserAndJoinRoom();
+    this.registerUserAndJoinRoom();
   }
 
   // Leaves the room and closes the data channel.
@@ -170,7 +163,6 @@ export class RemoteChat {
   // Locks the chat and announces that phone management stopped.
   cleanup() {
     console.debug("chat: cleanup");
-    this.dataOpen = false;
     this.disableAllChatControls();
     ui.emit("RemoteChat.onManagementStop");
   }
